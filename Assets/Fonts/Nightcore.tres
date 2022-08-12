@@ -1,0 +1,10 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cdoonqjoap86r"]
+
+[ext_resource type="FontFile" uid="uid://q6ak4vp26tv7" path="res://Assets/Nightcore.ttf" id="1_scsbg"]
+
+[resource]
+base_font = ExtResource("1_scsbg")
+opentype_features = {
+1667329140: 1
+}
+spacing_glyph = 1

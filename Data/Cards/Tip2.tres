@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cel3bparjgv5s"]
+
+[ext_resource type="Script" path="res://Data/Card.gd" id="1_i7h43"]
+
+[resource]
+script = ExtResource("1_i7h43")
+type = ""
+desc = "survive until 4am"

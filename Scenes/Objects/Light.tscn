@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://xjwb0j7r2sip"]
+
+[ext_resource type="AudioStream" uid="uid://kjnmdundgiam" path="res://Assets/Audio/Ambience/light_amb.mp3" id="2_joojt"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qhsvv"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.01
+
+[sub_resource type="SphereMesh" id="SphereMesh_ybl6o"]
+radius = 0.27
+height = 0.1
+is_hemisphere = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aaorm"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.01
+
+[node name="Light" type="Node3D"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.493806, -2.61468e-09)
+mesh = SubResource("CylinderMesh_qhsvv")
+skeleton = NodePath("../..")
+
+[node name="Lid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496686, 0)
+transparency = 0.7
+cast_shadow = 0
+mesh = SubResource("SphereMesh_ybl6o")
+skeleton = NodePath("../..")
+
+[node name="Tip" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.607786, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_aaorm")
+skeleton = NodePath("../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5672, -1.61754e-09)
+light_color = Color(1, 0.941176, 0.670588, 1)
+light_indirect_energy = 5.0
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.000842094, -1.68182e-07)
+stream = ExtResource("2_joojt")
+autoplay = true
+max_distance = 10.0
+emission_angle_enabled = true
+emission_angle_degrees = 80.0
+emission_angle_filter_attenuation_db = -18.0
+attenuation_filter_db = -12.0

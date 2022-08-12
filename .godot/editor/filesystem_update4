@@ -1,0 +1,15 @@
+res://Scenes/World.tscn
+res://Assets/Texture/Wood.tres
+res://Assets/Texture/Door.tres
+res://Assets/Objects/stair.tres
+res://template/lib/House.meshlib
+res://Scenes/Entities/NPC.tscn
+res://Scenes/Objects/Door.tscn
+res://Scenes/Objects/Room.tscn
+res://Scenes/Entities/Player.tscn
+res://Scenes/Objects/Clock.tscn
+res://Scripts/Entities/NPC.gd
+res://Scripts/Objects/Door.gd
+res://Scenes/Cards.gd
+res://Scenes/Objects/Light.tscn
+res://Scripts/Player.gd

@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://c72w0xepk5t22"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Light.gd" id="1_gobf2"]
+[ext_resource type="PackedScene" uid="uid://xjwb0j7r2sip" path="res://Scenes/Objects/Light.tscn" id="2_1nq5h"]
+[ext_resource type="AudioStream" uid="uid://cwlqdwoh4poit" path="res://Assets/Audio/SFX/switch.mp3" id="3_3f7pk"]
+[ext_resource type="PackedScene" uid="uid://csv2gn24b3jt8" path="res://Scenes/Objects/Clock.tscn" id="4_bpat6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4hkn"]
+size = Vector3(0.2, 0.3, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8hwd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3te4u"]
+material = SubResource("StandardMaterial3D_g8hwd")
+size = Vector3(0.2, 0.3, 0.03)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_htloy"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_onob8"]
+material = SubResource("StandardMaterial3D_htloy")
+left_to_right = 0.0
+size = Vector3(0.03, 0.15, 0.07)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_607uj"]
+points = PackedVector3Array(0.75, 0.05, 0.05, 0.75, 0.05, -0.05, -0.75, 0.05, 0.05, 0.75, -0.05, 0.05, 0.75, -0.05, -0.05, -0.75, 0.05, -0.05, -0.75, -0.05, 0.05, -0.75, -0.05, -0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k654q"]
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+normal_scale = -16.0
+clearcoat_roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fft0d"]
+material = SubResource("StandardMaterial3D_k654q")
+size = Vector3(2, 1.5, 0.05)
+
+[node name="Room" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, -2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 4.675, 0)
+script = ExtResource("1_gobf2")
+metadata/_edit_lock_ = true
+
+[node name="Light" parent="." instance=ExtResource("2_1nq5h")]
+
+[node name="Light2" parent="." instance=ExtResource("2_1nq5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 3.2)
+
+[node name="Switch" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.18, 1.85, -0.574783)
+metadata/_edit_group_ = true
+
+[node name="Area3D" type="Area3D" parent="Switch"]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.03)
+shape = SubResource("BoxShape3D_m4hkn")
+
+[node name="Backing" type="MeshInstance3D" parent="Switch"]
+mesh = SubResource("BoxMesh_3te4u")
+
+[node name="Lever1" type="MeshInstance3D" parent="Switch"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0.03)
+rotation_order = 0
+visible = false
+mesh = SubResource("PrismMesh_onob8")
+
+[node name="Lever2" type="MeshInstance3D" parent="Switch"]
+transform = Transform3D(-4.37114e-08, 0, 1, 8.74228e-08, -1, 3.82137e-15, 1, 8.74228e-08, 4.37114e-08, 0, 0, 0.03)
+rotation_order = 0
+mesh = SubResource("PrismMesh_onob8")
+
+[node name="SFX" type="AudioStreamPlayer3D" parent="Switch"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0.0977952)
+stream = ExtResource("3_3f7pk")
+unit_db = 2.0
+
+[node name="Clock" parent="." instance=ExtResource("4_bpat6")]
+transform = Transform3D(0.5, 0, 0, 0, -0.5, 4.37114e-08, 0, -4.37114e-08, -0.5, -2.9, 2.33, -0.66)
+
+[node name="Leave" type="Area3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -0.5, -7.5498e-08, 0, 7.5498e-08, -0.5, -1.75021, 2.52, -1.77992)
+
+[node name="Collision" type="CollisionShape3D" parent="Leave"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Enter" type="Area3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -0.5, -7.5498e-08, 0, 7.5498e-08, -0.5, -1.75452, 2.52, -1.40234)
+
+[node name="Collision" type="CollisionShape3D" parent="Enter"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Leave2" type="Area3D" parent="."]
+transform = Transform3D(-0.499954, 0, -0.0068066, -1.02777e-09, -0.5, 7.5491e-08, -0.0068066, 7.5498e-08, 0.499954, -1.75709, 2.52, 1.51769)
+
+[node name="Collision" type="CollisionShape3D" parent="Leave2"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Enter2" type="Area3D" parent="."]
+transform = Transform3D(-0.499954, 0, -0.0068066, -1.02777e-09, -0.5, 7.5491e-08, -0.0068066, 7.5498e-08, 0.499954, -1.74764, 2.52, 1.1402)
+
+[node name="Collision" type="CollisionShape3D" parent="Enter2"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Leave3" type="Area3D" parent="."]
+transform = Transform3D(-0.00459012, -2.22045e-16, -0.499979, -7.54948e-08, -0.5, 6.93082e-10, -0.499979, 7.5498e-08, 0.00459012, -0.484732, 2.52, 2.89473)
+
+[node name="Collision" type="CollisionShape3D" parent="Leave3"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Enter3" type="Area3D" parent="."]
+transform = Transform3D(-0.00459012, -2.22045e-16, -0.499979, -7.54948e-08, -0.5, 6.93082e-10, -0.499979, 7.5498e-08, 0.00459012, -0.107122, 2.52, 2.89557)
+
+[node name="Collision" type="CollisionShape3D" parent="Enter3"]
+shape = SubResource("ConvexPolygonShape3D_607uj")
+
+[node name="Bathroom" type="Node3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bathroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92253, 1.84724, 4.26828)
+mesh = SubResource("BoxMesh_fft0d")
+
+[connection signal="area_entered" from="Switch/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Switch/Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="Leave" to="." method="_on_leave_body_entered"]
+[connection signal="body_entered" from="Enter" to="." method="_on_enter_body_entered"]
+[connection signal="body_entered" from="Leave2" to="." method="_on_leave_body_entered"]
+[connection signal="body_entered" from="Enter2" to="." method="_on_enter_body_entered"]
+[connection signal="body_entered" from="Leave3" to="." method="_on_leave_body_entered"]
+[connection signal="body_entered" from="Enter3" to="." method="_on_enter_body_entered"]

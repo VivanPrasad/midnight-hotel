@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://tq3tk4bwgbvs"]
+
+[ext_resource type="Script" path="res://Data/Card.gd" id="1_gih8c"]
+
+[resource]
+script = ExtResource("1_gih8c")
+type = "instinct"
+desc = "leave."

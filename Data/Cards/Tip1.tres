@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d26uowx42wb8t"]
+
+[ext_resource type="Script" path="res://Data/Card.gd" id="1_kpjrc"]
+
+[resource]
+script = ExtResource("1_kpjrc")
+type = ""
+desc = "Stay in the Light"

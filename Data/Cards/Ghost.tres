@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxs848abbaih1"]
+
+[ext_resource type="Script" path="res://Data/Card.gd" id="1_riemg"]
+
+[resource]
+script = ExtResource("1_riemg")
+type = "premonition"
+desc = "a ghost will enter your room"

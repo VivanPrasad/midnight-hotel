@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cdc86f4w42fea"]
+
+[resource]
+albedo_color = Color(0.764706, 0.588235, 0.470588, 1)
+rim_tint = 0.14

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3rnice3hishw"]
+
+[ext_resource type="Script" path="res://Data/Card.gd" id="1_345tr"]
+
+[resource]
+script = ExtResource("1_345tr")
+type = "instinct"
+desc = "hide."

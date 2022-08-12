@@ -1,0 +1,197 @@
+[gd_scene load_steps=13 format=3 uid="uid://bkhej4juskr3x"]
+
+[ext_resource type="Script" path="res://Scripts/Objects/Door.gd" id="1_8fl6c"]
+[ext_resource type="AudioStream" uid="uid://bjuq11pdqrfuc" path="res://Assets/Audio/SFX/door.mp3" id="3_tqmrp"]
+[ext_resource type="AudioStream" uid="uid://cysk6a64t40in" path="res://Assets/Audio/SFX/door2.mp3" id="4_saxaa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hcik7"]
+albedo_color = Color(0.854902, 0.356863, 0.215686, 1)
+metallic = 0.2
+
+[sub_resource type="BoxMesh" id="BoxMesh_2pmqw"]
+material = SubResource("StandardMaterial3D_hcik7")
+size = Vector3(0.01, 0.85, 0.58)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h35yc"]
+data = PackedVector3Array(-0.005, 0.425, 0.29, 0.005, 0.425, 0.29, -0.005, -0.425, 0.29, 0.005, 0.425, 0.29, 0.005, -0.425, 0.29, -0.005, -0.425, 0.29, 0.005, 0.425, -0.29, -0.005, 0.425, -0.29, 0.005, -0.425, -0.29, -0.005, 0.425, -0.29, -0.005, -0.425, -0.29, 0.005, -0.425, -0.29, 0.005, 0.425, 0.29, 0.005, 0.425, -0.29, 0.005, -0.425, 0.29, 0.005, 0.425, -0.29, 0.005, -0.425, -0.29, 0.005, -0.425, 0.29, -0.005, 0.425, -0.29, -0.005, 0.425, 0.29, -0.005, -0.425, -0.29, -0.005, 0.425, 0.29, -0.005, -0.425, 0.29, -0.005, -0.425, -0.29, 0.005, 0.425, 0.29, -0.005, 0.425, 0.29, 0.005, 0.425, -0.29, -0.005, 0.425, 0.29, -0.005, 0.425, -0.29, 0.005, 0.425, -0.29, -0.005, -0.425, 0.29, 0.005, -0.425, 0.29, -0.005, -0.425, -0.29, 0.005, -0.425, 0.29, 0.005, -0.425, -0.29, -0.005, -0.425, -0.29)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dttaa"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ln48e"]
+material = SubResource("StandardMaterial3D_dttaa")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 0.05
+
+[sub_resource type="Animation" id="Animation_kp6tp"]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_tqmrp")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D/StaticBody3D/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_r7lsm"]
+resource_name = "Open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_saxaa")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D/StaticBody3D/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_fsa2n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D/StaticBody3D/CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpwr6"]
+_data = {
+"Close": SubResource("Animation_kp6tp"),
+"Open": SubResource("Animation_r7lsm"),
+"RESET": SubResource("Animation_fsa2n")
+}
+
+[node name="Door" type="Node3D"]
+transform = Transform3D(-7.23998e-06, 0, 2, 0, 2, 0, -2, 0, -7.23998e-06, 0, 0, 0)
+script = ExtResource("1_8fl6c")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.255)
+mesh = SubResource("BoxMesh_2pmqw")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_h35yc")
+disabled = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.2, -0.443)
+mesh = SubResource("CylinderMesh_ln48e")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dpwr6")
+}
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.258)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConcavePolygonShape3D_h35yc")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0531194, 0.229025, -0.262609)
+unit_db = -3.0
+max_distance = 20.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 120.0
+autostart = true
+
+[node name="Area3D2" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 1, 9.39444e-07, 0.200756, -0.259516)
+shape = SubResource("ConcavePolygonShape3D_h35yc")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3_d_2_body_entered"]
