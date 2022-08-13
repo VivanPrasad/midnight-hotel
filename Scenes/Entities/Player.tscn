@@ -45,10 +45,10 @@ metadata/_edit_group_ = true
 current = true
 fov = 80.0
 
-[node name="Area3D" type="Area3D" parent="Neck"]
+[node name="Select" type="Area3D" parent="Neck"]
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Neck/Select"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.4)
 shape = SubResource("CylinderShape3D_rg8j4")
 

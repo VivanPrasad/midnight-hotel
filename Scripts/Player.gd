@@ -72,7 +72,7 @@ func _unhandled_input(event) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			neck.rotate_y(-event.relative.x * 0.01)
-			$Neck/Area3D.rotation = camera.rotation
+			$Neck/Select.rotation = camera.rotation
 			$Cards.rotate_y(-event.relative.x * 0.01)
 			camera.rotate_x(-event.relative.y * 0.01)
 			camera.rotation.x = clamp(camera.rotation.x, deg2rad(-70), deg2rad(70))

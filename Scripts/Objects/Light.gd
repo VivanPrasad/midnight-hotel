@@ -29,14 +29,16 @@ func _unhandled_input(_event):
 						light.visible = false
 						light.get_child(0).stop()
 
-func _on_area_3d_area_entered(_area):
-	%Note.visible = true
-	able = true
+func _on_area_3d_area_entered(area):
+	if area.name == "Select":
+		%Note.visible = true
+		able = true
 
 
-func _on_area_3d_area_exited(_area):
-	%Note.visible = false
-	able = false
+func _on_area_3d_area_exited(area):
+	if area.name == "Select":
+		%Note.visible = false
+		able = false
 
 func _process(_delta):
 	if get_parent().get_index() == 0:
@@ -80,9 +82,7 @@ func _process(_delta):
 func _on_leave_body_entered(body):
 	if body.name == "Player":
 		Game.location = 0
-		print(Game.location)
 
 func _on_enter_body_entered(body):
 	if body.name == "Player":
 		Game.location = 1
-		print(Game.location)

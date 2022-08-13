@@ -14,13 +14,14 @@ func _unhandled_input(_event):
 				else:
 					$AnimationPlayer.play("Open")
 			
-func _on_area_3d_area_entered(_area):
-	if get_index() == 0:
+func _on_area_3d_area_entered(area):
+	if get_index() == 0 and area.name == "Select":
 		%Note.visible = true
 		selected = true
-func _on_area_3d_area_exited(_area):
-	selected = false
-	%Note.visible = false
+func _on_area_3d_area_exited(area):
+	if get_index() == 0 and area.name == "Select":
+		selected = false
+		%Note.visible = false
 
 func _on_timer_timeout():
 	if get_index() == 0:

@@ -17,12 +17,13 @@ func _ready():
 	else:
 		$Area3D.monitoring = false
 		$Timer.wait_time = 1
+		$Knife.visible = false
 func _physics_process(_delta):
 	for ray in $Eye.get_children():
 		if ray.is_colliding() and ray.get_collider().name == "Player" and evil:
 			set_destination(ray.get_collider().position)
 		else:
-			rotation.y += 1
+			$Eye.rotation.y += 1
 func _integrate_forces(_state):
 	if $NavigationAgent3D.is_target_reachable() and not $NavigationAgent3D.is_target_reached():
 		var target = $NavigationAgent3D.get_next_location()
@@ -30,7 +31,7 @@ func _integrate_forces(_state):
 		$NavigationAgent3D.set_velocity(velocity)
 		if not $Footstep.is_playing():
 			$Footstep.play()
-		
+		$Knife.rotation.y = velocity.y
 	else:
 		set_linear_velocity(Vector3.ZERO)
 		$Footstep.stop()
