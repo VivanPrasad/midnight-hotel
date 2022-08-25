@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c72w0xepk5t22"]
+[gd_scene load_steps=13 format=3 uid="uid://bn6dgoss2sgau"]
 
-[ext_resource type="Script" path="res://Scripts/Objects/Light.gd" id="1_gobf2"]
+[ext_resource type="Script" path="res://Scripts/Objects/Room.gd" id="1_3r2x7"]
 [ext_resource type="PackedScene" uid="uid://xjwb0j7r2sip" path="res://Scenes/Objects/Light.tscn" id="2_1nq5h"]
 [ext_resource type="AudioStream" uid="uid://cwlqdwoh4poit" path="res://Assets/Audio/SFX/switch.mp3" id="3_3f7pk"]
 [ext_resource type="PackedScene" uid="uid://csv2gn24b3jt8" path="res://Scenes/Objects/Clock.tscn" id="4_bpat6"]
@@ -37,7 +37,7 @@ size = Vector3(2, 1.5, 0.05)
 
 [node name="Room" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, -2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 4.675, 0)
-script = ExtResource("1_gobf2")
+script = ExtResource("1_3r2x7")
 metadata/_edit_lock_ = true
 
 [node name="Light" parent="." instance=ExtResource("2_1nq5h")]

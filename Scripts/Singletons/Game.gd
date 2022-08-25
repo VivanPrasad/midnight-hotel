@@ -1,7 +1,7 @@
 extends Node
 
 const speed = 70
-var second = 0
+var second = 1800
 var minute = 0
 var hour = 0
 

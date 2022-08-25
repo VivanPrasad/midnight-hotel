@@ -47,7 +47,6 @@ func _physics_process(delta):
 			$Footstep.stop()
 	move_and_slide()
 
-
 func _process(_delta):
 	if Game.hour == 0 and Game.minute == 59:
 		$Ghost.play()

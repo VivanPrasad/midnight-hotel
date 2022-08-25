@@ -1,12 +1,9 @@
-res://Scenes/Entities/NPC.tscn
+res://Scenes/World.tscn
 res://Assets/Texture/Wood.tres
 res://Assets/Texture/Door.tres
 res://Assets/Objects/stair.tres
 res://template/lib/House.meshlib
-res://Scenes/World.tscn
-res://Scripts/Entities/NPC.gd
+res://Scenes/Entities/NPC.tscn
 res://Scenes/Objects/Room.tscn
-res://Scripts/Objects/Door.gd
 res://Scenes/Entities/Player.tscn
-res://Scripts/Objects/Light.gd
-res://Scripts/Player.gd
+res://Scenes/Objects/Door.tscn

@@ -10,6 +10,7 @@ var able = false
 func _ready():
 	if get_index() != 0:
 		$Clock.position.x = -2.4
+	print($Light/OmniLight3D)
 func _unhandled_input(_event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if able:
@@ -41,7 +42,7 @@ func _on_area_3d_area_exited(area):
 		able = false
 
 func _process(_delta):
-	if get_parent().get_index() == 0:
+	if get_index() == 0:
 		if Game.hour == 1 and Game.minute < 10:
 			lights = false
 			if lights:
